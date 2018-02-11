@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new contacts</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script language="JavaScript" src="编辑联系人.js"></script>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+    <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#signUp").click(function () {
+                var name = $("#Name").val();
+                var phoneNumber = $("#PhoneNumber").val();
+                var e_mail = $("#E-mail").val();
+                var address =  $("#Address").val();
+                var qq = $("#QQNumber").val();
+
+                var atpos=e_mail.indexOf("@");
+                var dotpos=e_mail.lastIndexOf(".");
+
+                if (name=="") {
+                    alert("Please input username!");
+                    return false;
+                }
+                else if(phoneNumber=="")
+                {
+                    alert("Please input phoneNumber!");
+                    return false;
+                }
+                else if(isNaN(phoneNumber) || (phoneNumber.length!=7 && phoneNumber.length!=11))
+                {
+                    alert("Error!Please input phoneNumber again(numbers length7 or 11)!");
+                    return false;
+                }
+                else if(e_mail=="")
+                {
+                    alert("Please input e-mail address!");
+                    return false;
+                }
+                else if(atpos<1 || dotpos<atpos+2 || dotpos+2>=e_mail.length)
+                {
+                    alert("Invalid e-mail address!Please input again!");
+                    return false;
+                }
+                else if(address=="")
+                {
+                    alert("Please input address!");
+                    return false;
+                }
+                else if(qq=="")
+                {
+                    alert("Please input QQ number!");
+                    return false;
+                }
+                else if(isNaN(qq) || qq.length<5 || qq.length>10)
+                {
+                    alert("Error!Please input QQ Number again!");
+                    return false;
+                }
+                else
+                {
+                    alert("Edit successful!");
+                    self.location="通讯录列表页面jq.html";
+                }
+                return true;
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="container">
+                <div class="row clear">
+                    <div class="col-md-12 column">
+                        <form>
+                            <fieldset>
+                                <legend>Add new contacts</legend>
+                                <div class="control-group">
+                                    <label class="control-label" for="Name">Name</label>
+                                    <div class="control">
+                                        <input id="Name" type="text" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="PhoneNumber">Phone number</label>
+                                    <div class="control">
+                                        <input id="PhoneNumber" type="text" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="E-mail">E-mail</label>
+                                    <div class="control">
+                                        <input id="E-mail" type="text" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="Address">Address</label>
+                                    <div class="control">
+                                        <input id="Address" type="text" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="QQNumber">QQ number</label>
+                                    <div class="control">
+                                        <input id="QQNumber" type="text" />
+                                    </div>
+                                </div>
+                                <div class="btn-group btn-group-md">
+                                    <button class="btn btn-default" id="signUp" type="button">Confirm</button>
+                                    <button class="btn btn-default" type="button">
+                                        <em ><a href ="通讯录列表页面jq.html">Cancel</a></em></button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

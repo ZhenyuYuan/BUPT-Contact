@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a new user</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/jquery-ui"></script>
+    <link href="http://www.francescomalagrino.com/BootstrapPageGenerator/3/css/bootstrap-combined.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="http://www.francescomalagrino.com/BootstrapPageGenerator/3/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#signUp").click(function () {
+                var username = $("#inputUserName").val();
+                var password1 = $("#inputPassword1").val();
+                var password2 = $("#inputPassword2").val();
+                if (username=="") {
+                    alert("Please input username");
+                    return false;
+                }
+                else if(password1=="")
+                {
+                    alert("Please input password");
+                    return false;
+                }
+                else if(password1.length<5||password1.length>16)
+                {
+                    alert("The length of password must be 5~16!");
+                    return false;
+                }
+                else if(password2=="")
+                {
+                    alert("Please confirm password");
+                    return false;
+                }
+                else if(password1 != password2)
+                {
+                    alert("Please confirm password again");
+                    return false;
+                }
+                else{
+                    alert("Create successful");
+                    self.location="登陆页面jq.html";
+                }
+                return true;
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="container">
+                <div class="row clear">
+                    <div class="col-md-12 column">
+                        <form>
+                            <fieldset>
+                                <legend>Create a new user</legend>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputUserName">User Name</label>
+                                    <div class="control">
+                                        <input id="inputUserName" type="text" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword1">Password</label>
+                                    <div class="controls">
+                                        <input id="inputPassword1" type="password" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label" for="inputPassword2">Confirm your password</label>
+                                    <div class="controls">
+                                        <input id="inputPassword2" type="password" />
+                                    </div>
+                                </div>
+                                <div class="btn-group btn-group-md">
+                                    <button class="btn btn-default" id="signUp" type="button">Confirm</button>
+                                    <button class="btn btn-default" type="button">
+                                        <em ><a href = 登陆页面jq.html>Cancel</a></em></button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
